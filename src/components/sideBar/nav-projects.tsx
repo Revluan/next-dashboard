@@ -24,6 +24,8 @@ import {
     SidebarMenuItem,
     useSidebar,
 } from "@/components/ui/sidebar"
+import { Link } from "@/i18n/navigation"
+import { usePathname } from "@/i18n/navigation"
 
 export function NavProjects({
     projects,
@@ -35,19 +37,22 @@ export function NavProjects({
     }[]
 }) {
     const { isMobile } = useSidebar()
+    const pathname = usePathname()
 
     return (
         <SidebarGroup className="group-data-[collapsible=icon]:hidden">
             <SidebarGroupLabel>Projects</SidebarGroupLabel>
             <SidebarMenu>
-                {projects.map((item) => (
-                    <SidebarMenuItem key={item.name}>
-                        <SidebarMenuButton asChild>
-                            <a href={item.url}>
-                                <item.icon />
-                                <span>{item.name}</span>
-                            </a>
-                        </SidebarMenuButton>
+                {projects.map((item) => {
+                    const isActive = item.url !== "#" && pathname === item.url
+                    return (
+                        <SidebarMenuItem key={item.name}>
+                            <SidebarMenuButton asChild isActive={isActive}>
+                                <Link href={item.url}>
+                                    <item.icon />
+                                    <span>{item.name}</span>
+                                </Link>
+                            </SidebarMenuButton>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <SidebarMenuAction showOnHover>
@@ -76,7 +81,8 @@ export function NavProjects({
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </SidebarMenuItem>
-                ))}
+                    )
+                })}
                 <SidebarMenuItem>
                     <SidebarMenuButton className="text-sidebar-foreground/70">
                         <MoreHorizontal className="text-sidebar-foreground/70" />
