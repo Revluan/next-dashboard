@@ -1,0 +1,17 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Welcome to our website",
+    "description": "This is the homepage description",
+    "cta": "Get Started"
+  },
+  "about": {
+    "title": "About Us",
+    "content": "We are a technology company focused on innovation."
+  }
+}

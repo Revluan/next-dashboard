@@ -1,0 +1,17 @@
+{
+    "common": {
+      "home": "首页",
+      "about": "关于我们",
+      "contact": "联系我们",
+      "language": "语言"
+    },
+    "home": {
+      "title": "欢迎来到我们的网站",
+      "description": "这是首页描述",
+      "cta": "开始使用"
+    },
+    "about": {
+      "title": "关于我们",
+      "content": "我们是一家专注于创新的科技公司。"
+    }
+  }
